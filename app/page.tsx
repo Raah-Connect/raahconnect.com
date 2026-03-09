@@ -601,7 +601,77 @@ export default function Home() {
           color: var(--text-dim);
           letter-spacing: 0.05em;
         }
+        /* CLOUD VS SOVEREIGN */
 
+        .compare-section {
+          padding: 40px 0 60px;
+        }
+
+        .compare-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+
+        @media (max-width: 720px) {
+          .compare-grid { grid-template-columns: 1fr; }
+        }
+
+        .compare-box {
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 28px;
+          background: var(--surface);
+        }
+
+        .compare-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 1.2rem;
+          margin-bottom: 16px;
+        }
+
+        .compare-list {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          font-size: 0.9rem;
+          color: var(--text-dim);
+        }
+
+        .compare-good {
+          border-color: #93c5fd;
+        }
+
+        /* NODE OPERATOR SECTION */
+
+        .node-section {
+          padding: 80px 0;
+        }
+
+        .node-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 16px;
+          margin-top: 32px;
+        }
+
+        .node-card {
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 22px;
+          background: var(--surface);
+          font-size: 0.9rem;
+          color: var(--text-dim);
+        }
+
+        .node-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 1rem;
+          margin-bottom: 6px;
+          color: var(--text);
+        }
         .section-pad { padding: 80px 0 40px; }
       `}</style>
 
@@ -689,7 +759,38 @@ export default function Home() {
             <div className="price-badge">66% OFF</div>
           </div>
         </div>
+      {/* CLOUD VS SOVEREIGN */}
+      <section className="compare-section">
+        <div className="section-title">Take back control of your internet</div>
+        <p className="section-sub">
+          The modern internet runs on corporate servers. RaahConnect flips that model —
+          giving individuals the power to run their own infrastructure.
+        </p>
 
+        <div className="compare-grid">
+
+          <div className="compare-box">
+            <div className="compare-title">☁️ The Cloud Internet</div>
+            <div className="compare-list">
+              <div>Your account lives on someone else's server</div>
+              <div>Platforms can ban or lock accounts</div>
+              <div>Your data is mined for ads</div>
+              <div>Your identity depends on corporations</div>
+            </div>
+          </div>
+
+          <div className="compare-box compare-good">
+            <div className="compare-title">🖥 With RaahConnect</div>
+            <div className="compare-list">
+              <div>Your server runs on your own computer</div>
+              <div>No platform bans or lockouts</div>
+              <div>Your data stays under your control</div>
+              <div>Your identity belongs to you</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
         {/* HOW IT WORKS */}
         <section className="section-pad">
           <div className="section-title">How it works</div>
@@ -719,6 +820,43 @@ export default function Home() {
             </div>
           </div>
         </section>
+      {/* NODE OPERATOR SECTION */}
+      <section className="node-section">
+        <div className="section-title">Become a sovereign node operator</div>
+        <p className="section-sub">
+          RaahConnect turns your computer into a real internet node.
+          Run your own apps, host your own data, and participate in the
+          peer-to-peer web — without needing to be a developer.
+        </p>
+
+        <div className="node-grid">
+
+          <div className="node-card">
+            <div className="node-title">🖥 Personal Server Owner</div>
+            Your computer becomes a self-hosted server that runs
+            your digital life.
+          </div>
+
+          <div className="node-card">
+            <div className="node-title">🔐 Self-Sovereign Identity</div>
+            Your identity lives on your server, not on corporate
+            platforms.
+          </div>
+
+          <div className="node-card">
+            <div className="node-title">🌐 Peer-to-Peer Participant</div>
+            Connect directly with others without relying on
+            centralized infrastructure.
+          </div>
+
+          <div className="node-card">
+            <div className="node-title">⚡ Early Network Pioneer</div>
+            The first users help shape the next generation
+            internet.
+          </div>
+
+        </div>
+      </section>
 
         {/* INVESTOR SECTION */}
         <section className="investor-section">
