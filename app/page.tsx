@@ -9,12 +9,36 @@ export default function Home() {
   const [investorName, setInvestorName] = useState("");
   const [investorSubmitted, setInvestorSubmitted] = useState(false);
 
-  const handleWaitlist = () => {
-    if (email) {
+  // Inside your component, add these states if not already there
+const [loading, setLoading] = useState(false);
+
+// Replace your existing handleWaitlist with:
+const handleWaitlist = async () => {
+  if (!email) return;
+  
+  setLoading(true);
+  
+  try {
+    const response = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
       setSubmitted(true);
-      setEmail("");
+      setEmail('');
+    } else {
+      alert(data.error || 'Something went wrong');
     }
-  };
+  } catch (error) {
+    alert('Failed to join waitlist. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleInvestor = () => {
     if (investorEmail && investorName) {
