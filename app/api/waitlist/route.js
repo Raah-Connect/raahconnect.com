@@ -15,21 +15,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-
-    // 3. Add to Resend audience
-    const { data, error } = await resend.contacts.create({
-      email: email,
-      audienceId: process.env.RESEND_AUDIENCE_ID,
-    });
-
-    if (error) {
-      console.error('Resend error:', error);
-      return Response.json(
-        { error: 'Failed to add to waitlist' },
-        { status: 500 }
-      );
-    }
-
     // 4. Send welcome email
     await resend.emails.send({
       from: 'Raah Connect <updates@raahconnect.com>',
