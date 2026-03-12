@@ -16,20 +16,7 @@ export async function POST(request) {
       );
     }
 
-    // 1. Add to Resend audience (same or separate audience from waitlist)
-    const { error: audienceError } = await resend.contacts.create({
-      email,
-      firstName: name.split(' ')[0],
-      lastName: name.split(' ').slice(1).join(' ') || '',
-      audienceId: process.env.RESEND_INVESTOR_AUDIENCE_ID || process.env.RESEND_AUDIENCE_ID,
-    });
-
-    if (audienceError) {
-      console.error('Resend audience error:', audienceError);
-      // Non-fatal — still send emails
-    }
-
-    // 2. Send confirmation to investor
+    // 1. Send confirmation to investor
     await resend.emails.send({
       from: 'Raah Connect <updates@raahconnect.com>',
       to: [email],
@@ -54,7 +41,7 @@ export async function POST(request) {
       `,
     });
 
-    // 3. Notify founder with lead details
+    // 2. Notify founder with lead details
     await resend.emails.send({
       from: 'RaahConnect Site <updates@raahconnect.com>',
       to: [FOUNDER_EMAIL],
