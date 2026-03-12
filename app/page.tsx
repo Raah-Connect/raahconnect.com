@@ -40,13 +40,33 @@ const handleWaitlist = async () => {
   }
 };
 
-  const handleInvestor = () => {
-    if (investorEmail && investorName) {
+ const handleInvestor = async () => {
+  if (!investorEmail || !investorName) return;
+
+  setLoading(true);
+
+  try {
+    const response = await fetch('/api/investor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: investorEmail, name: investorName })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
       setInvestorSubmitted(true);
-      setInvestorEmail("");
-      setInvestorName("");
+      setInvestorEmail('');
+      setInvestorName('');
+    } else {
+      alert(data.error || 'Something went wrong');
     }
-  };
+  } catch (error) {
+    alert('Failed to submit. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
