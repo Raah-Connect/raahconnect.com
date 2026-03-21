@@ -1,8 +1,12 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 export async function POST() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return Response.json({ error: 'Stripe key not configured' }, { status: 500 });
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -12,10 +16,9 @@ export async function POST() {
             currency: 'usd',
             product_data: {
               name: 'RaahConnect — Early Adopter Lifetime Access',
-              description:
-                'Lifetime access + all future updates. First 500 customers only.',
+              description: 'Lifetime access + all future updates. First 500 customers only.',
             },
-            unit_amount: 4900, // $49.00 in cents
+            unit_amount: 4900,
           },
           quantity: 1,
         },
