@@ -1,11 +1,12 @@
+import LegalPage from '../components/LegalPage';
+
 export default function PrivacyPolicy() {
   return (
-    <main style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 20px" }}>
-      <h1>Privacy Policy</h1>
-      <p>Effective Date: [Insert Date]</p>
+    <LegalPage title="Privacy Policy">
+      <p className="legal-date">Effective Date: January 1, 2026</p>
 
       <p>
-        RaahConnect (“we”, “our”, or “us”) respects your privacy. This Privacy Policy explains how we collect, use, and protect your information.
+        RaahConnect ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information.
       </p>
 
       <h2>1. Information We Collect</h2>
@@ -25,32 +26,22 @@ export default function PrivacyPolicy() {
       </ul>
 
       <h2>3. Payments</h2>
-      <p>
-        All payments are handled by Stripe. We do not store or have access to your full payment details.
-      </p>
+      <p>All payments are handled by Stripe. We do not store or have access to your full payment details.</p>
 
       <h2>4. Data Sharing</h2>
-      <p>
-        We do not sell your data. We only share information with trusted services (like Stripe) necessary to operate the product.
-      </p>
+      <p>We do not sell your data. We only share information with trusted services (like Stripe) necessary to operate the product.</p>
 
       <h2>5. Data Retention</h2>
-      <p>
-        We retain your information only as long as necessary to provide our services or comply with legal obligations.
-      </p>
+      <p>We retain your information only as long as necessary to provide our services or comply with legal obligations.</p>
 
       <h2>6. Your Rights</h2>
-      <p>
-        You can request access, correction, or deletion of your data at any time by contacting us.
-      </p>
+      <p>You can request access, correction, or deletion of your data at any time by contacting us.</p>
 
       <h2>7. Contact</h2>
       <p>Email: support@raahconnect.com</p>
 
       <h2>8. Changes</h2>
-      <p>
-        We may update this policy as the product evolves. Continued use means you accept the updated policy.
-      </p>
-    </main>
+      <p>We may update this policy as the product evolves. Continued use means you accept the updated policy.</p>
+    </LegalPage>
   );
 }
