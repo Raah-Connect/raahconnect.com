@@ -747,6 +747,7 @@ const handleWaitlist = async () => {
         </nav>
 
         {/* HERO */}
+        <section>
         <h1>
           Own your data.<br />
           <em>Run your own internet.</em>
