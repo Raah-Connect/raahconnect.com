@@ -1,29 +1,35 @@
+import LegalPage from '../components/LegalPage';
+
 export default function TermsOfService() {
   return (
-    <main>
-      <h1>Terms of Service</h1>
-      <p>Effective Date: [Insert date]</p>
+    <LegalPage title="Terms of Service">
+      <p className="legal-date">Effective Date: January 1, 2026</p>
 
-      <section>
-        <h2>Prelaunch Disclaimer</h2>
-        <p>
-          This is a pre-launch product. Features and timelines may change.
-        </p>
-      </section>
+      <p>By using RaahConnect, you agree to these terms. Please read them carefully.</p>
 
-      <section>
-        <h2>Payment & Lifetime Access</h2>
-        <p>
-          Founders who pay $49 receive lifetime access to RaahConnect. Launch price will be $159.
-        </p>
-      </section>
+      <h2>1. Prelaunch Disclaimer</h2>
+      <p>This is a pre-launch product. Features and timelines may change as development progresses.</p>
 
-      <section>
-        <h2>Refund Policy</h2>
-        <p>
-          Requests can be made within 30 days of purchase. Contact support@yourdomain.com.
-        </p>
-      </section>
-    </main>
+      <h2>2. Payment & Lifetime Access</h2>
+      <p>Founders who pay $49 receive lifetime access to RaahConnect, including all future updates. The launch price will be $149.</p>
+
+      <h2>3. Refund Policy</h2>
+      <p>Refund requests can be made within 30 days of purchase. Contact support@raahconnect.com with your order ID.</p>
+
+      <h2>4. Acceptable Use</h2>
+      <p>You agree not to use RaahConnect for any unlawful purpose or in any way that could harm others.</p>
+
+      <h2>5. Intellectual Property</h2>
+      <p>RaahConnect is licensed under the Prosperity Public License 3.0. The core application remains proprietary.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>RaahConnect is provided as-is. We are not liable for any damages arising from use of the product.</p>
+
+      <h2>7. Changes to Terms</h2>
+      <p>We may update these terms as the product evolves. Continued use means you accept the updated terms.</p>
+
+      <h2>8. Contact</h2>
+      <p>Email: support@raahconnect.com</p>
+    </LegalPage>
   );
 }
