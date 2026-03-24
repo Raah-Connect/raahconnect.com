@@ -998,6 +998,11 @@ const handleWaitlist = async () => {
 
           {/* SOCIAL FIRST (COMMUNITY) */}
           <div className="social-links">
+             {/* X (formerly Twitter) */}
+              <a href="https://x.com/raahconnect" target="_blank" rel="noopener noreferrer" className="social-btn x">
+                {/* X svg icon here */}
+                X
+              </a>
             <a href="https://discord.com/invite/GDarZR92K" target="_blank" rel="noopener noreferrer" className="social-btn discord">
               {/* svg stays same */}
               Discord
